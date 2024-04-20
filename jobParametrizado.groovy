@@ -1,4 +1,4 @@
-job('ejemplo-job-DSL') {
+job('DSL-Job-parametrizado') {
   description('Job DSL de ejemplo para el curso de Jenkins y creado por el maquino')
   scm {
     git('https://github.com/macloujulian/jenkins.job.parametrizado.git', 'main') { node -> // is hudson.plugins.git.GitSCM

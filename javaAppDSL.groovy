@@ -6,6 +6,9 @@ job('Java Maven App DSL from GitHub') {
             node / gitConfigEmail('martinare.ipn@gmail.com')
         }
     }
+    triggers {
+      githubPush()
+    }
     steps {
         maven {
           mavenInstallation('mavenjenkins')
@@ -16,8 +19,8 @@ job('Java Maven App DSL from GitHub') {
           goals('test')
         }
         shell('''
-          echo "Entrega: Desplegando la aplicación" 
-          java -jar "/var/jenkins_home/workspace/Java Maven App DSL/target/my-app-1.0-SNAPSHOT.jar"
+          echo "Entrega: Desplegando la aplicación Java Maven" 
+          java -jar "/var/jenkins_home/workspace/Java Maven App DSL from GitHub/target/my-app-1.0-SNAPSHOT.jar"
         ''')  
     }
     publishers {
